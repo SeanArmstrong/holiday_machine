@@ -28,6 +28,20 @@ BankHoliday.create([{:name=>'New Years Day', :date_of_hol=>'2011-01-01'},
                     {:name=>'Christmas Day', :date_of_hol=>'2011-12-25'},
                     {:name=>'Boxing Day', :date_of_hol=>'2011-12-28'}])
 
-HolidayYear.create([{:description => "Oct 2013 to Sept 2014", :date_start => "2013-10-01", :date_end=> "2014-09-30"},
-                    {:description => "Oct 2014 to Sept 2015", :date_start => "2014-10-01", :date_end=> "2015-09-30"},
-                    {:description => "Oct 2015 to Sept 2016", :date_start => "2015-10-01", :date_end=> "2016-09-30"}])
+HolidayYear.create([{:description => "Oct 2012 to Sept 2013", :date_start => "2012-10-01", :date_end => "2013-09-30"},
+                    {:description => "Oct 2013 to Sept 2014", :date_start => "2013-10-01", :date_end => "2014-09-30"},
+                    {:description => "Oct 2014 to Sept 2015", :date_start => "2014-10-01", :date_end => "2015-09-30"},
+                    {:description => "Oct 2015 to Sept 2016", :date_start => "2015-10-01", :date_end => "2016-09-30"}])
+
+#Test Setup
+UserType.create([{:name => "Standard"}])
+UserType.create([{:name => "Manager"}])
+
+AbsenceType.create([{:name => 'Holiday'},
+                    {:name => 'Illness'},
+                    {:name => 'Maternity/Paternity'},
+                    {:name => 'Family'},
+                    {:name => 'Other'}])
+
+HolidayStatus.create([{:status => 'Pending'}, {:status => 'Authorised'}, {:status => 'Cancelled'}, {:status => 'Taken'}])
+
