@@ -5,6 +5,16 @@ class HolidayMailer < ActionMailer::Base
     @user = user
     @manager = manager
     @holiday = holiday
+    @other_users_array = Array.new 
+    userAbsence = Absence.find_by_user_id(user.id)
+    User.all.each do |u|
+      if u.manager_id == @manager.id 
+        ab = Absence.find_by_user_id(u.id)
+          if userAbsence.date_from <= ab.date_to && ab.date_from <= ab.date_to
+            @other_users_array << u unless u.id == user.id
+        end
+      end
+    end
     @url  = "http://example.com/validate_holiday"
     mail(:to      => @manager.email, :from => @user.email,
          :subject => "You have a holiday request awaiting")

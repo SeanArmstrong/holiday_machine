@@ -12,5 +12,19 @@
 <p>
 To authorize, follow the link to <%= I18n.t('app_url') %>
 </p>
+<p>
+  <% nomOfClashes = @other_users_array.size %>
+  This holiday clashes with <%= nomOfClashes %> other (users with the same manager)
+</p>
+<p>
+  <% if nomOfClashes > 0 %>
+     These users are:
+    <% @other_users_array.each do |person| %> 
+    <ul>
+      <li><%= person.full_name %></li>
+    </ul>
+  <% end %>
+<% end %>
+</p>
 </body>
 </html>
