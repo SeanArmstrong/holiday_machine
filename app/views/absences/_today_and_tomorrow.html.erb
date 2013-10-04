@@ -1,0 +1,7 @@
+<% User.get_team_users(current_user.manager_id).each do |user| %>
+    <% user.absences.each do |ab| %>
+      <ul>
+        <li><%= user.full_name if ab.date_from <= date && ab.date_to >= date %></li>  
+      </ul>
+  <% end %>
+<% end %>  

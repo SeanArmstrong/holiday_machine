@@ -1,3 +1,4 @@
+<% require 'date' %>
 <div id="user-holidays">
 	<h3>Your holidays</h3>
 	<% if @holidays.present? %>
@@ -64,4 +65,8 @@
 			<tbody></tbody>
 		</table>
 	<% end %>
+	<h4> Off Today </h4>
+		<%= render partial: 'today_and_tomorrow', :locals => { :date => DateTime.now, :current_user => current_user } %>
+	<h4> Off Next Working Day </h4>
+  	<%= render partial: 'today_and_tomorrow', :locals => { :date => DateTime.now.tomorrow, :current_user => current_user } %>
 </div>
