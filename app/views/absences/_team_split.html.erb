@@ -1,5 +1,3 @@
-<% require 'date' %>
-
 <% User.get_team_users(given_id).each do |user| %>
   <% unless current_user.id == user.id %>
     <ul>
