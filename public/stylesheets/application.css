@@ -821,3 +821,12 @@ dl dt {
 .administer h3 {
   line-height: 45px;
 }
+
+.testclass {
+  width: 50%;
+  float: left;
+}
+
+
+
+

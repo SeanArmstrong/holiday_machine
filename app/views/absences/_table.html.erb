@@ -33,7 +33,7 @@
 		</table>
 	<% end %>
 
-	<h3>Other absences<h3>
+	<h3>Other absences</h3>
 	<% if @other_absences.present? %>
 		<table id="absences" style="visibility: visible;">
 			<thead>
@@ -65,8 +65,12 @@
 			<tbody></tbody>
 		</table>
 	<% end %>
-	<h4> Off Today </h4>
-		<%= render partial: 'today_and_tomorrow', :locals => { :date => DateTime.now, :current_user => current_user } %>
-	<h4> Off Next Working Day </h4>
-  	<%= render partial: 'today_and_tomorrow', :locals => { :date => DateTime.now.tomorrow, :current_user => current_user } %>
+  <div>
+    <div class="testclass">
+      <%= render partial: 'today_and_tomorrow', :locals => { :title => "Off Today", :date => DateTime.now } %>
+    </div>
+    <div class="testclass">
+      <%= render partial: 'today_and_tomorrow', :locals => { :title => "Off Next Working Day", :date => DateTime.now.tomorrow } %>
+    </div>
+  </div>
 </div>

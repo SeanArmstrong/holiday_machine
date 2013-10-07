@@ -1,9 +1,11 @@
-<% User.get_team_users(current_user.manager_id).each do |user| %>
-<% unless current_user.id == user.id %>
-  <% user.absences.each do |ab| %>
-      <ul>
-        <li><%= user.full_name if ab.date_from <= date && ab.date_to >= date %></li>  
-      </ul>
-    <% end %>
-  <% end %>
-<% end %>  
+<% require 'date' %>
+
+<h3> <%= title %> </h3>
+
+<!-- Manager and Colleagues-->
+<h5>Manager and Colleagues</h5>
+<%= render partial: 'team_split', :locals => { :given_id => current_user.manager_id, :date => date } %>
+
+<!-- Your Team -->
+<h5>Your Team</h5>
+<%= render partial: 'team_split', :locals => { :given_id => current_user.id, :date => date } %>
